@@ -1,5 +1,10 @@
-function MenuItem({ pizza }) {
+/* eslint-disable */
+
+import { formatCurrency } from "../../utils/helpers";
+
+function MenuItem( {pizza} ) {
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+console.log(pizza);
 
   return (
     <li>

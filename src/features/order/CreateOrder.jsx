@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { useState } from "react";
 
 // https://uibakery.io/regex-library/phone-number
