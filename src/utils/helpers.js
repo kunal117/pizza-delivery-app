@@ -1,4 +1,4 @@
-import {getMenu} from "../services/apiRestaurant"
+import { getMenu, getOrder } from "../services/apiRestaurant";
 
 export function formatCurrency(value) {
   return new Intl.NumberFormat("en", {
@@ -24,8 +24,12 @@ export function calcMinutesLeft(dateStr) {
 
 /* -- Loaders functions -- */
 
-export async function menuLoader(){
+export async function menuLoader() {
   const menu = await getMenu();
   return menu;
 }
 
+export async function orderLoader({ params }) {
+  const order = await getOrder(params.orderId);
+  return order;
+}
