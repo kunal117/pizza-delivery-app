@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Form } from "react-router-dom";
+import Button from "../../ui/Button";
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -35,6 +36,7 @@ const fakeCart = [
 
 function CreateOrder() {
   // const [withPriority, setWithPriority] = useState(false);
+  const [isSubmitting,setIsSubmitting] = useState(false);
   const cart = fakeCart;
 
   return (
@@ -57,7 +59,8 @@ function CreateOrder() {
         <div>
           <label>Address</label>
           <div>
-            <input type="text" name="address" required className="rounded-full px-4 py-2 border border-stone-200 text-sm transition-all duration-300 placeholder: text-stone-400 focus:outline-none focus:ring focus:ring-yellow-400 w-full md:px-6 md:py-3"/>
+            <input type="text" name="address" className="rounded-full px-4 py-2 border border-stone-200 text-sm transition-all duration-300 
+            placeholder: text-stone-400 focus:outline-none focus:ring focus:ring-yellow-400 w-full md:px-6 md:py-3" required/>
           </div>
         </div>
 
@@ -74,7 +77,7 @@ function CreateOrder() {
         </div>
 
         <div>
-          <button className="inline-block font-semibold rounded-full bg-yellow-400 py-3 px-4 hover:bg-yellow-300 uppercase tracking-wide text-stone-800 transition-colors duration-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 active:bg-slate-400 cursor-not-allowed" >Order now</button>
+          <Button disabled={isSubmitting}>{isSubmitting? "Placing order..." : "Order now"}</Button>
         </div>
       </Form>
     </div>
