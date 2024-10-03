@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 const API_URL = "https://react-fast-pizza-api.onrender.com/api";
 
 export async function getMenu() {
@@ -22,7 +20,6 @@ export async function getOrder(id) {
 
 export async function createOrder(newOrder) {
   try {
-    console.log(newOrder);
     const res = await fetch(`${API_URL}/order`, {
       method: "POST",
       body: JSON.stringify(newOrder),
